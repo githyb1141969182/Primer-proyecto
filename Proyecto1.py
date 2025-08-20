@@ -95,9 +95,9 @@ pdf.output("resumen.pdf")
 print("PDF generado: resumen.pdf")
 
 # Datos del correo
-remitente = "tomassantiago759@gmail.com"
-password = "bqukrpovhlddhnrt"  # Contraseña de aplicación o real
-destinatario = "tomassantiago758@gmail.com"
+remitente = "Correo Desde donde se envía el PDF"
+password = "Contraseña"  # Contraseña de aplicación o real
+destinatario = "Cuenta Receptora del PDF"
 asunto = "Resumen de Gastos"
 cuerpo = "Adjunto encontrarás el PDF con el resumen de gastos."
 
