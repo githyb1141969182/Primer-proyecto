@@ -10,6 +10,9 @@ app = Flask(__name__)
 # --------------------
 # Configuración Twilio
 # --------------------
+ACCOUNT_SID = ""       # <- Aquí tu Account SID
+AUTH_TOKEN = ""         # <- Aquí tu Auth Token
+TWILIO_WHATSAPP = "whatsapp:+"  # <- Número Twilio WhatsApp
 client = Client(ACCOUNT_SID, AUTH_TOKEN)
 
 CSV_FILE = "registros.csv"  # Archivo CSV
@@ -20,6 +23,7 @@ CSV_FILE = "registros.csv"  # Archivo CSV
 @app.route("/whatsapp", methods=["POST"])
 def whatsapp_incoming():
     request.form.get("From")
+    
     mensaje = request.form.get("Body")
     fecha = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     
