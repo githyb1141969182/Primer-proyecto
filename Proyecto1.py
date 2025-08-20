@@ -19,7 +19,7 @@ while True:
             print("Saliendo del programa...")
             break
         if tipo not in [0, 1]:
-            print("⚠️ Valor inválido.")
+            print("Valor inválido.")
             continue
 
         categoria = input("Categoría: ")
@@ -38,7 +38,7 @@ while True:
             writer.writerow([fecha_hora] + fila)
 
     except ValueError:
-        print("⚠️ Ingrese un valor numérico válido.")
+        print("Ingrese un valor numérico válido.")
 
 
 pdf = FPDF()
@@ -120,4 +120,4 @@ with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
     smtp.login(remitente, password)
     smtp.send_message(msg)
 
-print("Correo enviado con el PDF adjunto ✅")
+print("Correo enviado con el PDF adjunto ")
