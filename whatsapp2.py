@@ -6,13 +6,13 @@ from twilio.twiml.messaging_response import MessagingResponse
 
 app = Flask(__name__)
 
-# Configuración de Twilio
-ACCOUNT_SID = "AC036510f7b8420c728002424ceebc8a0f"
-AUTH_TOKEN = "d0a9db7276d73ae2d24146456f206284"
-TWILIO_WHATSAPP = "whatsapp:+14155238886"  # Número oficial de Twilio
+# Configuración de Twilio (rellena con tus credenciales)
+ACCOUNT_SID = "TU_ACCOUNT_SID"       # <- Aquí va tu Account SID de Twilio
+AUTH_TOKEN = "TU_AUTH_TOKEN"         # <- Aquí va tu Auth Token de Twilio
+TWILIO_WHATSAPP = "whatsapp:+TU_NUMERO_TWILIO"  # <- Número oficial de Twilio WhatsApp
 client = Client(ACCOUNT_SID, AUTH_TOKEN)
 
-CSV_FILE = "registros.csv"
+CSV_FILE = "registros.csv"  # Archivo donde se guardarán los registros
 
 @app.route("/whatsapp", methods=["POST"])
 def whatsapp_incoming():
