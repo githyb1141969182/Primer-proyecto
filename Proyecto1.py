@@ -2,7 +2,8 @@ import csv
 import os
 from datetime import datetime
 from fpdf import FPDF
-
+import smtplib
+from email.message import EmailMessage
 archivo = 'datos.csv'
 
 # Crear CSV con encabezado si no existe
@@ -92,3 +93,31 @@ pdf.cell(40, 10, f"${balance:.2f}", border=1, ln=1)
 
 pdf.output("resumen.pdf")
 print("PDF generado: resumen.pdf")
+
+# Datos del correo
+remitente = "tomassantiago759@gmail.com"
+password = "bqukrpovhlddhnrt"  # Contraseña de aplicación o real
+destinatario = "tomassantiago758@gmail.com"
+asunto = "Resumen de Gastos"
+cuerpo = "Adjunto encontrarás el PDF con el resumen de gastos."
+
+# Crear el mensaje
+msg = EmailMessage()
+msg['From'] = remitente
+msg['To'] = destinatario
+msg['Subject'] = asunto
+msg.set_content(cuerpo)
+
+# Adjuntar el PDF
+nombre_pdf = "resumen.pdf"
+with open(nombre_pdf, 'rb') as f:
+    archivo_data = f.read()
+    archivo_nombre = f.name
+msg.add_attachment(archivo_data, maintype='application', subtype='pdf', filename=archivo_nombre)
+
+# Conectar al servidor y enviar
+with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+    smtp.login(remitente, password)
+    smtp.send_message(msg)
+
+print("Correo enviado con el PDF adjunto ✅")
