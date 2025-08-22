@@ -11,6 +11,6 @@ Enviar el PDF por correo electrónico.
 
 Tecnologías y librerías usadas
 
-Python 3
+Python 3.13.3
 Librerías estándar: csv, os, datetime, smtplib, email
 Librerías externas: fpdf (generar PDF)
